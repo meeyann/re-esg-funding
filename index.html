@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RE:ESG 감정 카드 — 오마이컴퍼니 펀딩</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --e: #2D6A4F;
+  --e-light: #E8F4EE;
+  --e-mid: #B7D9C8;
+  --s: #1B4F72;
+  --s-light: #E8EEF6;
+  --g: #B7791F;
+  --g-light: #F6EFE4;
+  --g-mid: #E8C99A;
+  --bg: #FAF8F3;
+  --bg2: #F3F0EA;
+  --text: #231F1A;
+  --muted: #7A7568;
+  --border: #DDD8CE;
+  --white: #FFFFFF;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ────────────────────────────────── NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(250,248,243,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+
+.nav-dots { display: flex; gap: 4px; }
+.nav-dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  display: block;
+}
+.nd-e { background: var(--e); }
+.nd-s { background: var(--s); }
+.nd-g { background: var(--g); }
+
+.nav-brand {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--text); letter-spacing: 0.02em;
+}
+
+.nav-cta {
+  background: var(--e);
+  color: white;
+  font-size: 0.78rem; font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #1e4e38; }
+
+/* ────────────────────────────────── HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-right {
+  background: var(--e);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right-inner {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Organic shape background */
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: -20%;
+  width: 140%; height: 140%;
+  background: radial-gradient(ellipse 60% 80% at 60% 40%, #1e4e38 0%, var(--e) 60%);
+  z-index: 1;
+}
+
+.hero-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(183,121,31,0.2) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--e);
+  margin-bottom: 24px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--e);
+}
+
+.hero-h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.hero-h1 em {
+  font-style: normal;
+  color: var(--e);
+  position: relative;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.95;
+  max-width: 380px;
+  margin-bottom: 36px;
+}
+
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: var(--e);
+  color: white;
+  font-size: 0.9rem; font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: #1e4e38; transform: translateY(-1px); }
+
+.btn-secondary {
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--e); color: var(--e); }
+
+.hero-stats {
+  display: flex; gap: 32px;
+}
+
+.stat-item { }
+.stat-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* Card stack visual */
+.card-stack {
+  position: relative;
+  width: 220px; height: 300px;
+  margin: 0 auto;
+}
+
+.card-visual {
+  position: absolute;
+  width: 160px; height: 220px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+}
+
+.cv1 {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  top: 60px; left: 30px;
+  transform: rotate(-8deg);
+}
+
+.cv2 {
+  background: linear-gradient(135deg, rgba(183,121,31,0.3), rgba(183,121,31,0.1));
+  top: 40px; left: 50px;
+  transform: rotate(-2deg);
+}
+
+.cv3 {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  top: 20px; left: 40px;
+  transform: rotate(3deg);
+  border: none;
+}
+
+.cv3-inner {
+  padding: 20px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cv3-axis {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--e);
+  background: var(--e-light);
+  padding: 3px 8px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.cv3-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.cv3-sub {
+  font-size: 0.65rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cv3-keywords {
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+
+.cv3-kw {
+  font-size: 0.58rem;
+  padding: 2px 7px;
+  border-radius: 100px;
+  background: var(--bg2);
+  color: var(--muted);
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 30px; right: 30px;
+  background: rgba(183,121,31,0.15);
+  border: 1px solid rgba(183,121,31,0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  z-index: 3;
+  color: white;
+}
+
+.hero-badge-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+.hero-badge-value {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ────────────────────────────────── SECTIONS */
+.section {
+  padding: 80px 0;
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--muted);
+}
+
+.section-h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.section-h2 em {
+  font-style: normal;
+  color: var(--e);
+}
+
+.section-p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.95;
+  max-width: 540px;
+}
+
+/* ────────────────────────────────── PROBLEM */
+.problem-section {
+  background: var(--text);
+  color: white;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.problem-h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.problem-h2 em {
+  font-style: normal;
+  color: var(--g-mid);
+}
+
+.problem-p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.95;
+  margin-bottom: 32px;
+}
+
+.problem-items {
+  display: grid; gap: 14px;
+}
+
+.problem-item {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+
+.pi-icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.pi-text h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.pi-text p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+.quote-block {
+  border-left: 3px solid var(--g);
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 10px 10px 0;
+}
+
+.quote-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 12px;
+}
+
+.quote-author {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+}
+
+/* ────────────────────────────────── CARD INTRO */
+.card-intro-section {
+  background: white;
+}
+
+.axis-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.axis-card {
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.axis-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.axis-e { background: var(--e-light); }
+.axis-e::before { background: var(--e); }
+.axis-s { background: var(--s-light); }
+.axis-s::before { background: var(--s); }
+.axis-g { background: var(--g-light); }
+.axis-g::before { background: var(--g); }
+
+.axis-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.tag-e { background: rgba(45,106,79,0.12); color: var(--e); }
+.tag-s { background: rgba(27,79,114,0.12); color: var(--s); }
+.tag-g { background: rgba(183,121,31,0.15); color: var(--g); }
+
+.axis-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.axis-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.card-count-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--bg2);
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.count-pill {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.count-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+
+.count-num {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.count-sep {
+  color: var(--border);
+  font-size: 0.8rem;
+}
+
+/* ────────────────────────────────── REWARDS */
+.rewards-section {
+  background: var(--bg);
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.reward-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reward-card.featured {
+  border-color: var(--e);
+  box-shadow: 0 0 0 2px var(--e);
+}
+
+.reward-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.reward-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.badge-starter { background: var(--s-light); color: var(--s); }
+.badge-extended { background: var(--e-light); color: var(--e); }
+.badge-recommended {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--e); color: white;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.reward-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.reward-price {
+  display: flex; align-items: baseline; gap: 6px;
+}
+
+.price-main {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--e);
+}
+
+.price-unit { font-size: 0.85rem; color: var(--muted); }
+.price-original {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.reward-body { padding: 24px 28px; }
+
+.reward-items { display: grid; gap: 10px; margin-bottom: 20px; }
+
+.ri {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 0.85rem; color: var(--muted); line-height: 1.5;
+}
+
+.ri::before {
+  content: '✓';
+  color: var(--e);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.reward-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 10px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+/* ────────────────────────────────── DIGITAL */
+.digital-section {
+  background: var(--bg2);
+}
+
+.digital-grid {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.digital-cards {
+  display: grid; gap: 12px;
+}
+
+.digital-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+
+.dc-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.dci-e { background: var(--e-light); }
+.dci-s { background: var(--s-light); }
+.dci-g { background: var(--g-light); }
+
+.dc-body h4 {
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text); margin-bottom: 4px;
+}
+
+.dc-body p {
+  font-size: 0.78rem; color: var(--muted); line-height: 1.7;
+}
+
+/* ────────────────────────────────── SCENES */
+.scenes-section {
+  background: white;
+}
+
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.scene-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.scene-visual {
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sv-morning { background: linear-gradient(135deg, #FFF8EE 0%, #FFE8C0 100%); }
+.sv-couple { background: linear-gradient(135deg, #EEF4FF 0%, #C8D8F0 100%); }
+.sv-group { background: linear-gradient(135deg, #EEF6EE 0%, #B7D9C8 100%); }
+
+.scene-icon { font-size: 2.4rem; }
+
+.scene-body {
+  padding: 18px 20px;
+}
+
+.scene-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1rem; font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.scene-desc {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.scene-quote {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  border-left: 2px solid var(--border);
+  line-height: 1.7;
+}
+
+/* ────────────────────────────────── WHY */
+.why-section {
+  background: var(--bg);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.why-sticky {
+  position: sticky;
+  top: 80px;
+}
+
+.why-label-big {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 4rem; font-weight: 700;
+  color: var(--e-mid);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.why-h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5rem; font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.why-steps { display: grid; gap: 24px; }
+
+.why-step {
+  padding: 22px 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.ws-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--e-mid);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.ws-title {
+  font-size: 0.9rem; font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.ws-desc {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.85;
+}
+
+/* ────────────────────────────────── FAQ */
+.faq-section {
+  background: white;
+}
+
+.faq-list {
+  display: grid; gap: 12px;
+  margin-top: 40px;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 18px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.faq-q:hover { background: var(--bg); }
+
+.faq-q-text {
+  font-size: 0.9rem; font-weight: 500;
+  color: var(--text); line-height: 1.4;
+}
+
+.faq-q-icon {
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.faq-item.open .faq-q-icon { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 22px 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.9;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.faq-item.open .faq-a { display: block; }
+
+/* ────────────────────────────────── CTA FINAL */
+.cta-section {
+  background: var(--e);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 50%; height: 160%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -10%;
+  width: 40%; height: 160%;
+  background: radial-gradient(ellipse, rgba(183,121,31,0.15) 0%, transparent 70%);
+}
+
+.cta-inner {
+  position: relative; z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.cta-esg {
+  display: flex; justify-content: center; gap: 8px;
+  margin-bottom: 24px;
+}
+
+.cta-pill {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.cta-h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.cta-p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.9;
+  margin-bottom: 36px;
+}
+
+.cta-btn-main {
+  display: inline-block;
+  background: white;
+  color: var(--e);
+  font-size: 1rem; font-weight: 700;
+  padding: 16px 44px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.cta-btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.cta-small {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ────────────────────────────────── FOOTER */
+footer {
+  background: var(--text);
+  padding: 36px 40px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.9;
+}
+
+footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+footer a:hover { color: white; }
+
+/* ────────────────────────────────── ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-tag { animation: fadeInUp 0.5s ease both; }
+.hero-h1 { animation: fadeInUp 0.5s 0.1s ease both; }
+.hero-desc { animation: fadeInUp 0.5s 0.2s ease both; }
+.hero-btns { animation: fadeInUp 0.5s 0.3s ease both; }
+.hero-stats { animation: fadeInUp 0.5s 0.4s ease both; }
+
+/* ────────────────────────────────── RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 24px 40px; }
+  .hero-right { height: 320px; }
+  .hero-stats { gap: 20px; }
+  .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+  .axis-row { grid-template-columns: 1fr; }
+  .rewards-grid { grid-template-columns: 1fr; }
+  .digital-grid { grid-template-columns: 1fr; }
+  .scenes-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-sticky { position: static; }
+  nav { padding: 0 20px; }
+  .section-inner, .section-wide { padding: 0 20px; }
+  .section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-dots">
+      <span class="nd-e"></span>
+      <span class="nd-s"></span>
+      <span class="nd-g"></span>
+    </div>
+    <span class="nav-brand">RE:ESG</span>
+  </a>
+  <a href="#cta" class="nav-cta">펀딩 참여하기</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">오마이컴퍼니 · 첫 번째 펀딩</div>
+    <h1 class="hero-h1">
+      감정을 설명하기<br>
+      어려운 날,<br>
+      <em>카드 한 장</em>으로<br>
+      시작합니다
+    </h1>
+    <p class="hero-desc">
+      RE:ESG는 자연 이미지를 담은 88장 감정 카드입니다.<br>
+      카드를 고르고, 한 줄을 쓰고, 작은 실천 하나로 이어지는<br>
+      Emotion · Self · Ground의 회복 흐름입니다.
+    </p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">
+        펀딩 참여하기 →
+      </a>
+      <a href="https://meeyann.github.io/re-esg-guide/" target="_blank" class="btn-secondary">
+        가이드북 미리보기
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">88장</div>
+        <div class="stat-label">감정 카드 본문</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3축</div>
+        <div class="stat-label">E · S · G 구조</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2019</div>
+        <div class="stat-label">워크숍 시작</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="card-stack">
+        <div class="card-visual cv1"></div>
+        <div class="card-visual cv2"></div>
+        <div class="card-visual cv3">
+          <div class="cv3-inner">
+            <div>
+              <span class="cv3-axis">E · Emotion</span>
+            </div>
+            <div>
+              <div class="cv3-name">파도</div>
+              <div class="cv3-sub">밀려오는 마음은<br>영원히 머물지 않습니다</div>
+            </div>
+            <div class="cv3-keywords">
+              <span class="cv3-kw">#감정의흐름</span>
+              <span class="cv3-kw">#일시성</span>
+              <span class="cv3-kw">#회복</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-label">FUNDING OPENS</div>
+      <div class="hero-badge-value">2026 · 6월</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section problem-section">
+  <div class="section-inner">
+    <div class="problem-grid">
+      <div>
+        <div class="section-label" style="color: rgba(255,255,255,0.4);">문제 제기</div>
+        <h2 class="problem-h2">
+          우리는 매일 감정을 느끼지만,<br>
+          그것에 <em>이름을 붙이는 법</em>을<br>
+          배운 적이 없습니다
+        </h2>
+        <p class="problem-p">
+          "괜찮아요." "좀 답답하네요." "모르겠어요."<br>
+          대부분의 사람이 이 세 가지 언어 안에서 하루를 마칩니다.<br>
+          감정은 분명히 느꼈는데, 그것이 무엇인지 말하기 어렵습니다.
+        </p>
+        <div class="problem-items">
+          <div class="problem-item">
+            <div class="pi-icon">🌊</div>
+            <div class="pi-text">
+              <h4>이름 없는 감정은 쌓입니다</h4>
+              <p>언어가 없으면 감정은 자기이해로 이어지지 못합니다</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="pi-icon">🔒</div>
+            <div class="pi-text">
+              <h4>감정을 억누를수록 더 꼬입니다</h4>
+              <p>없애려 할수록 더 엉뚱한 순간에 치고 올라옵니다</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="pi-icon">📚</div>
+            <div class="pi-text">
+              <h4>배운 적이 없는 것입니다</h4>
+              <p>수학은 배웠지만 감정을 언어로 다루는 법은 배우지 않았습니다</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="quote-block">
+          <p class="quote-text">
+            "어린 시절 나는 공책에 이런 글을 썼다.<br>
+            <br>
+            '내가 로봇이었다면.'<br>
+            <br>
+            감정이 없으면 덜 힘들 것 같았다. 흔들리지 않을 것 같았다.<br>
+            그래서 열심히 감정을 죽이려고 했다.<br>
+            <br>
+            그런데 감정은 내 마음대로 되지 않았다."
+          </p>
+          <p class="quote-author">— 미양 / RE:ESG 창작자, 아마도랩</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARD INTRO -->
+<section class="section card-intro-section">
+  <div class="section-inner">
+    <div class="section-label">카드 소개</div>
+    <h2 class="section-h2">
+      얼굴 대신 <em>자연</em>을 담았습니다
+    </h2>
+    <p class="section-p">
+      기존 감정 카드는 얼굴이나 이모지로 감정을 직관화했습니다.
+      그런데 얼굴은 너무 빨리 답을 줍니다.
+      자연은 정답 대신 해석의 여백을 남깁니다.
+    </p>
+
+    <div class="axis-row">
+      <div class="axis-card axis-e">
+        <span class="axis-tag tag-e">E · Emotion</span>
+        <div class="axis-title">감정 인식</div>
+        <p class="axis-desc">
+          지금 내 안에 어떤 감정이 있는지 알아차립니다.
+          좋고 나쁨이 아니라, 지금 무엇이 있는지 먼저 봅니다.
+          자연 이미지가 자기 경험을 얹을 여백이 됩니다.
+        </p>
+      </div>
+      <div class="axis-card axis-s">
+        <span class="axis-tag tag-s">S · Self</span>
+        <div class="axis-title">자기 이해</div>
+        <p class="axis-desc">
+          그 감정이 나와 어떤 이야기를 가지는지 들여다봅니다.
+          왜 이 상황에서 이 감정이 올라오는지,
+          내가 무엇을 원하거나 두려워하는지를 봅니다.
+        </p>
+      </div>
+      <div class="axis-card axis-g">
+        <span class="axis-tag tag-g">G · Ground</span>
+        <div class="axis-title">뿌리내리기</div>
+        <p class="axis-desc">
+          다시 현실로 착지합니다. 거창한 변화가 아니라,
+          지금 이 자리에서 할 수 있는 작은 실천 하나로
+          돌아오는 것입니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="card-count-bar">
+      <div class="count-pill">
+        <div class="count-dot" style="background:var(--e)"></div>
+        <span>카드 본문</span>
+        <span class="count-num">88장</span>
+        
+      </div>
+      <span class="count-sep">+</span>
+      <div class="count-pill">
+        <div class="count-dot" style="background:var(--g)"></div>
+        <span>가이드 카드</span>
+        <span class="count-num">2장</span>
+      </div>
+      <span class="count-sep">=</span>
+      <div class="count-pill">
+        <span>총</span>
+        <span class="count-num">90장</span>
+        <span style="font-size:0.75rem;color:var(--muted)">구성</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<section class="section rewards-section" id="rewards">
+  <div class="section-inner">
+    <div class="section-label">RE:ESG 감정카드 90장 세트</div>
+    <h2 class="section-h2">리워드 구성</h2>
+    <p class="section-p">
+      초도 제작의 안정성을 위해 실물 리워드는 90장 단일 구성으로 준비했습니다.<br>
+      후원 목적과 방식에 따라 아래 리워드 중 선택하실 수 있습니다.
+    </p>
+
+    <style>
+    .rewards-grid-6{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+    .rw-tier{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .rw-tier.featured{border-color:var(--e);box-shadow:0 0 0 2px var(--e)}
+    .rw-tier-head{padding:20px 24px 16px;border-bottom:1px solid var(--border)}
+    .rw-badge2{font-size:0.66rem;font-weight:700;letter-spacing:0.1em;padding:3px 9px;border-radius:100px;display:inline-block;margin-bottom:10px}
+    .rw-badge-support{background:#F3F0EA;color:#7A7568}
+    .rw-badge-digital{background:var(--s-light);color:var(--s)}
+    .rw-badge-early{background:var(--e-light);color:var(--e)}
+    .rw-badge-normal{background:var(--e-light);color:var(--e)}
+    .rw-badge-duo{background:var(--g-light);color:var(--g)}
+    .rw-badge-group{background:#F3F0EA;color:#7A7568}
+    .rw-name2{font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:6px}
+    .rw-price2{display:flex;align-items:baseline;gap:5px}
+    .rw-p-main{font-family:'Noto Serif KR',serif;font-size:1.65rem;font-weight:700;color:var(--e)}
+    .rw-p-unit{font-size:0.82rem;color:var(--muted)}
+    .rw-p-confirm{font-size:0.75rem;color:var(--muted);background:var(--bg2);padding:2px 8px;border-radius:4px;border:1px dashed var(--border)}
+    .rw-body2{padding:18px 24px}
+    .rw-items2{display:grid;gap:8px;margin-bottom:14px}
+    .rw-item2{display:flex;gap:9px;align-items:flex-start;font-size:0.82rem;color:var(--muted);line-height:1.5}
+    .rw-item2::before{content:'✓';color:var(--e);font-weight:700;flex-shrink:0;margin-top:1px}
+    .rw-note2{font-size:0.73rem;color:var(--muted);padding:9px 12px;background:var(--bg);border-radius:7px;line-height:1.7}
+    .rw-recommended{position:absolute;top:14px;right:14px;background:var(--e);color:white;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;padding:3px 9px;border-radius:100px}
+    .rw-full{grid-column:1/-1}
+    @media(max-width:768px){.rewards-grid-6{grid-template-columns:1fr}}
+    </style>
+
+    <div class="rewards-grid-6">
+
+      <div class="rw-tier">
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-support">응원형</span>
+          <div class="rw-name2">응원 후원</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">5,000</span>
+            <span class="rw-p-unit">원</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">감사 메시지</div>
+            <div class="rw-item2">감정 체크 미니 PDF</div>
+          </div>
+          <div class="rw-note2">제품 없이 RE:ESG를 응원하고 싶은 분께 권장합니다.</div>
+        </div>
+      </div>
+
+      <div class="rw-tier">
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-digital">디지털 리추얼형</span>
+          <div class="rw-name2">디지털 리추얼</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">15,000</span>
+            <span class="rw-p-unit">원</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">7일 감정 워크북 PDF</div>
+            <div class="rw-item2">감정 트래커 안내</div>
+            <div class="rw-item2">12장 체험 리추얼 페이지</div>
+            <div class="rw-item2">감정 기록 시트</div>
+          </div>
+          <div class="rw-note2">실물 없이 먼저 RE:ESG 흐름을 경험해보고 싶은 분께 추천합니다.</div>
+        </div>
+      </div>
+
+      <div class="rw-tier featured" style="position:relative">
+        <span class="rw-recommended">슈퍼 얼리버드</span>
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-early">슈퍼 얼리버드 실물형</span>
+          <div class="rw-name2">RE:ESG 90장 세트</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">[확정 예정]</span>
+            <span class="rw-p-unit">원</span>
+            <span class="rw-p-confirm">얼리버드 한정 수량</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">감정카드 88장 (E 29장·S 30장·G 29장)</div>
+            <div class="rw-item2">가이드 카드 2장 (총 90장)</div>
+            <div class="rw-item2">틴케이스 + 슬리브 패키지</div>
+            <div class="rw-item2">구매자 안내 QR</div>
+            <div class="rw-item2">7일 워크북 PDF · 감정 트래커</div>
+            <div class="rw-item2">12장 리추얼 샘플 · 통합 가이드북 PDF</div>
+          </div>
+          <div class="rw-note2">제한 수량 [확정 예정] — 조기 마감 시 일반 실물형으로 전환됩니다.</div>
+        </div>
+      </div>
+
+      <div class="rw-tier">
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-normal">일반 실물형</span>
+          <div class="rw-name2">RE:ESG 90장 세트</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">[확정 예정]</span>
+            <span class="rw-p-unit">원</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">감정카드 88장 (E 29장·S 30장·G 29장)</div>
+            <div class="rw-item2">가이드 카드 2장 (총 90장)</div>
+            <div class="rw-item2">틴케이스 + 슬리브 패키지</div>
+            <div class="rw-item2">구매자 안내 QR</div>
+            <div class="rw-item2">7일 워크북 PDF · 감정 트래커</div>
+            <div class="rw-item2">12장 리추얼 샘플 · 통합 가이드북 PDF</div>
+          </div>
+          <div class="rw-note2">슈퍼 얼리버드 종료 후 기본 리워드입니다.</div>
+        </div>
+      </div>
+
+      <div class="rw-tier">
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-duo">함께 쓰기</span>
+          <div class="rw-name2">2세트 묶음</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">[확정 예정]</span>
+            <span class="rw-p-unit">원</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">실물형 2세트 구성</div>
+            <div class="rw-item2">구매자 디지털 자료 각 1부 제공</div>
+          </div>
+          <div class="rw-note2">가족·친구와 함께 사용하시는 분, 선물용으로 추천합니다.</div>
+        </div>
+      </div>
+
+      <div class="rw-tier">
+        <div class="rw-tier-head">
+          <span class="rw-badge2 rw-badge-group">기관·단체 문의</span>
+          <div class="rw-name2">10세트 이상</div>
+          <div class="rw-price2">
+            <span class="rw-p-main">별도 문의</span>
+          </div>
+        </div>
+        <div class="rw-body2">
+          <div class="rw-items2">
+            <div class="rw-item2">10세트 이상 단체 구매</div>
+            <div class="rw-item2">워크숍 연계 운영 협의 가능</div>
+            <div class="rw-item2">견적서·거래명세서 발행 가능</div>
+          </div>
+          <div class="rw-note2">문의: amadolab.official@gmail.com</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:18px; font-size:0.75rem; color:var(--muted); text-align:center;">
+      * 가격 및 수량은 펀딩 오픈 전 확정 예정입니다. 실제 가격은 펀딩 페이지에서 확인하세요.<br>
+      * 배송비: [확정 예정] · 도서산간 추가 배송비 발생 가능 · 발송 예정: 펀딩 종료 후 [확정 예정]
+    </p>
+  </div>
+</section>
+
+<!-- DIGITAL -->
+<section class="section digital-section">
+  <div class="section-inner">
+    <div class="digital-grid">
+      <div>
+        <div class="section-label">구매자 전용 디지털 자료</div>
+        <h2 class="section-h2">카드와 함께<br><em>더 깊이 시작하기</em></h2>
+        <p class="section-p" style="margin-bottom:20px;">
+          카드와 함께 더 쉽게 시작할 수 있도록<br>
+          구매자 전용 디지털 자료를 제공합니다.
+        </p>
+        <div style="font-size:0.75rem;color:var(--muted);margin-bottom:28px;line-height:1.8;background:var(--bg2);padding:12px 16px;border-radius:8px;border-left:3px solid var(--border)">
+          ※ 일부 자료는 구매자 전용 링크로 제공됩니다.<br>
+          ※ 무단 복제, 재배포, 상업적 활용을 금지합니다.
+        </div>
+        <a href="#cta" class="btn-primary" style="display:inline-flex;">
+          펀딩 참여하면 받을 수 있어요 →
+        </a>
+      </div>
+      <div class="digital-cards">
+        <div class="digital-card">
+          <div class="dc-icon dci-e">🔗</div>
+          <div class="dc-body">
+            <h4>구매자 시작 안내 페이지</h4>
+            <p>카드 수령 후 무엇부터 시작할지 안내하는 QR 연결 페이지</p>
+          </div>
+        </div>
+        <div class="digital-card">
+          <div class="dc-icon dci-s">📋</div>
+          <div class="dc-body">
+            <h4>7일 감정 워크북 PDF</h4>
+            <p>Day 1~7 감정 기록과 Week 1 정리로 구성된 일주일 루틴 워크북</p>
+          </div>
+        </div>
+        <div class="digital-card">
+          <div class="dc-icon dci-e">🗓️</div>
+          <div class="dc-body">
+            <h4>감정 트래커</h4>
+            <p>7일·30일 감정 실천을 기록하는 디지털 기록 도구</p>
+          </div>
+        </div>
+        <div class="digital-card">
+          <div class="dc-icon dci-g">🌿</div>
+          <div class="dc-body">
+            <h4>12장 체험 리추얼</h4>
+            <p>대표 카드 12장으로 진행하는 감정 회복 리추얼 샘플</p>
+          </div>
+        </div>
+        <div class="digital-card">
+          <div class="dc-icon dci-s">🎙️</div>
+          <div class="dc-body">
+            <h4>마리의 가이드 음성 일부</h4>
+            <p>카드 활용을 돕는 창작자 가이드 음성 안내</p>
+          </div>
+        </div>
+        <div class="digital-card">
+          <div class="dc-icon dci-e">📖</div>
+          <div class="dc-body">
+            <h4>통합 가이드북 PDF</h4>
+            <p>88장 카드 구조와 전체 활용법을 담은 심화 안내 자료 (구매자 전용)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENES -->
+<section class="section scenes-section">
+  <div class="section-inner">
+    <div class="section-label">사용 장면</div>
+    <h2 class="section-h2">이런 순간에 꺼내게 됩니다</h2>
+    <p class="section-p">
+      정해진 시간이나 방법이 없습니다.
+      필요한 날, 필요한 순간에 손이 가는 것.
+      그게 이 카드가 지향하는 방식입니다.
+    </p>
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <div class="scene-visual sv-morning">
+          <span class="scene-icon">🌅</span>
+        </div>
+        <div class="scene-body">
+          <div class="scene-title">출근 전 아침 5분</div>
+          <p class="scene-desc">
+            하루를 시작하기 전, 카드 한 장을 고르고
+            오늘의 감정을 한 줄로 기록합니다.
+          </p>
+          <div class="scene-quote">
+            "카드를 고르는 것만으로도 오늘 내가 어떤 상태인지 알게 됐어요."
+          </div>
+        </div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-visual sv-couple">
+          <span class="scene-icon">🌿</span>
+        </div>
+        <div class="scene-body">
+          <div class="scene-title">둘이 마주 앉아서</div>
+          <p class="scene-desc">
+            파트너, 친구, 가족과 함께 각자 카드를 고르고
+            왜 그 카드를 골랐는지 이야기를 나눕니다.
+          </p>
+          <div class="scene-quote">
+            "말로 하기 어려운 것들을 카드로 시작하니까 훨씬 편했어요."
+          </div>
+        </div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-visual sv-group">
+          <span class="scene-icon">🍃</span>
+        </div>
+        <div class="scene-body">
+          <div class="scene-title">그룹 워크숍에서</div>
+          <p class="scene-desc">
+            소규모 모임, 교육·복지 현장, 조직 워크숍에서
+            감정 체크인 보조도구로 활용됩니다.
+          </p>
+          <div class="scene-quote">
+            "참여자들이 카드를 보고 스스로 말문을 열기 시작했어요."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-sticky">
+        <div class="why-label-big">왜</div>
+        <div class="section-label">제작 이유</div>
+        <h2 class="why-h2">이 카드를 만든<br>이유가 있습니다</h2>
+        <p class="section-p">
+          2019년부터 시작된 질문이 지금의 RE:ESG로 이어졌습니다.
+          감정을 어렵지 않게 시작할 수 있는 도구를 만들고 싶었습니다.
+        </p>
+      </div>
+      <div class="why-steps">
+        <div class="why-step">
+          <div class="ws-num">01</div>
+          <div class="ws-title">가까운 사람으로부터 시작됐습니다</div>
+          <p class="ws-desc">
+            감정을 표현하지 못하는 시대를 살아온 사람 옆에서 오래 보았습니다.
+            말해지지 않은 감정들이 사라지지 않고 몸의 긴장으로, 반복되는 패턴으로 남는 것을.
+            그림을 잘 그리지 못해도, 말을 잘 하지 못해도, 자기 안의 것을 꺼낼 수 있는 자리를 만들고 싶었습니다.
+          </p>
+        </div>
+        <div class="why-step">
+          <div class="ws-num">02</div>
+          <div class="ws-title">워크숍에서 확인했습니다</div>
+          <p class="ws-desc">
+            2019년부터 2021년까지 여러 장소에서 예술 워크숍을 진행했습니다.
+            참가자들이 완성된 작품 앞에서가 아니라, 그리는 중간에 울었습니다.
+            오랫동안 꺼내지 못했던 기억이 올라왔다는 메시지를 받았습니다.
+            결과물이 아니라 과정이 사람을 움직이고 있었습니다.
+          </p>
+        </div>
+        <div class="why-step">
+          <div class="ws-num">03</div>
+          <div class="ws-title">자연을 언어로 택했습니다</div>
+          <p class="ws-desc">
+            얼굴이 있는 카드는 너무 빨리 답을 줍니다. 내 감정을 찾는 것이 아니라,
+            주어진 감정 중에서 고르게 됩니다.
+            같은 나뭇가지도 어떤 날은 강해 보이고, 어떤 날은 부러질 것 같아 보입니다.
+            자연은 정답 없이 각자가 자기 것을 얹을 여백을 남깁니다.
+          </p>
+        </div>
+        <div class="why-step">
+          <div class="ws-num">04</div>
+          <div class="ws-title">완성된 답이 아닌 첫 시작입니다</div>
+          <p class="ws-desc">
+            이번 펀딩은 완성된 결론이 아닙니다.
+            설계 안에서 가능성으로만 존재하던 것이 실제 일상에서 어떻게 쓰이는지 확인하는 첫 단계입니다.
+            카드 1장 + 기록 1줄 + 작은 실천 1개.
+            그 첫 번째 사용자가 되어주세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-inner">
+    <div class="section-label">자주 묻는 질문</div>
+    <h2 class="section-h2">FAQ</h2>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">심리 전문가가 아니어도 혼자 사용할 수 있나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          네, RE:ESG는 전문 심리 지식 없이도 혼자 사용할 수 있도록 설계했습니다.
+          카드를 고르고, 짧게 기록하고, 작은 실천 하나를 정하는 구조로
+          일상에서 자연스럽게 감정을 다룰 수 있습니다.
+          단, 심각한 심리적 위기 상황에서는 전문가 연계를 권합니다.
+          가이드북 안전 사용 챕터에 기준이 안내되어 있습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">카드를 매일 사용해야 하나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          강제가 아닙니다. 하루 한 장, 필요한 날에만 꺼내도 됩니다.
+          "카드를 꼭 써야 한다"는 압박이 생기면 오히려 멀어집니다.
+          가이드북에는 매일 루틴 버전과 저에너지 날의 최소 사용법 두 가지가 모두 포함됩니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">카드 구성은 어떻게 되나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          RE:ESG 감정카드는 Emotion 29장, Self 30장, Ground 29장으로 구성된 감정카드 88장과
+          시작 안내를 위한 가이드 카드 2장, 총 90장으로 구성됩니다.
+          기본 감정부터 복합 감정, 자기 이해, 관계 감정, 회복과 실천까지
+          한 세트 안에서 E→S→G 흐름으로 탐색할 수 있도록 설계했습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">기관이나 단체에서 워크숍 도구로 활용할 수 있나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          개인 사용 외에도 소규모 모임, 교육·복지 현장, 조직 워크숍의 감정 체크인 보조도구로 활용할 수 있습니다.
+          기관·단체 구매 또는 워크숍 연계 운영은 별도 문의를 통해 안내드립니다.
+          문의: amadolab.official@gmail.com
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">펀딩 달성 후 언제 배송되나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          펀딩 달성 후 최대 1개월 이내에 일괄 배송됩니다.
+          시제품 검수를 완료한 상태로 진행하므로 배송 일정을 최대한 지킬 수 있도록 준비했습니다.
+          정확한 배송 예정일은 펀딩 페이지에서 확인하실 수 있습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">RE:ESG는 심리치료나 상담인가요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          RE:ESG 감정카드는 일상 속 감정 인식과 자기돌봄을 돕는 <strong>비의료 도구</strong>입니다.
+          심리상담, 임상치료, 의료 행위를 대체하지 않습니다.<br><br>
+          사용 중 심리적 불편감이 크거나 위기 상황이 느껴지는 경우,
+          전문 상담기관 또는 의료기관의 도움을 권장합니다.
+          카드는 진단·처방이 아니라, 감정을 언어로 만나는 일상 자기돌봄 도구입니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span class="faq-q-text">후원금은 어떻게 사용되나요?</span>
+          <span class="faq-q-icon">▼</span>
+        </div>
+        <div class="faq-a">
+          이번 후원금은 세 가지 방향으로 사용됩니다.
+          첫째, 틴케이스 제작 — 감정을 담는 그릇, 초도 생산 비용입니다.
+          둘째, QR 가이드 인쇄 — 혼자서도 나아갈 수 있는 디지털 연결 구조 제작입니다.
+          셋째, 구매자 안내 시스템과 후속 개선 — 7일 워크북, 트래커, 리추얼 자료를 정리하고 후원자 피드백을 반영해 정식 제품화를 보완하는 데 사용합니다.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <div class="cta-esg">
+      <span class="cta-pill">Emotion</span>
+      <span class="cta-pill">Self</span>
+      <span class="cta-pill">Ground</span>
+    </div>
+    <h2 class="cta-h2">
+      감정을 설명하기 어려운 날,<br>
+      카드 한 장으로 시작합니다
+    </h2>
+    <p class="cta-p">
+      카드 1장 + 기록 1줄 + 작은 실천 1개.<br>
+      RE:ESG의 첫 번째 후원자가 되어주세요.
+    </p>
+    <div>
+      <a href="#" class="cta-btn-main">오마이컴퍼니 펀딩 참여하기</a>
+    </div>
+    <p class="cta-small">
+      카드 본문 88장 + 가이드 카드 2장 = 총 90장 구성 · 가이드북 포함 · 한정 수량<br>
+      얼리버드 마감 시 가격이 변경됩니다
+    </p>
+  </div>
+</section>
+
+<!-- 이메일 알림 신청 -->
+<section style="background:var(--bg2); padding:80px 40px; text-align:center; border-top:1px solid var(--border);">
+  <div style="max-width:560px; margin:0 auto;">
+    <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--e); margin-bottom:16px;">펀딩 오픈 알림</div>
+    <h2 style="font-family:'Noto Serif KR',serif; font-size:clamp(1.4rem,3vw,2rem); font-weight:700; line-height:1.45; margin-bottom:12px; color:var(--text);">
+      펀딩이 열리는 날,<br>가장 먼저 알려드립니다
+    </h2>
+    <p style="font-size:0.88rem; color:var(--muted); line-height:1.9; margin-bottom:36px;">
+      얼리버드 혜택은 오픈 첫 48시간 안에만 유효합니다.<br>
+      이메일을 남겨두시면 그 순간 바로 알려드립니다.
+    </p>
+
+    <div id="notifyForm" style="display:flex; gap:10px; max-width:440px; margin:0 auto 12px;">
+      <input
+        id="notifyEmail"
+        type="email"
+        placeholder="이메일 주소를 입력해주세요"
+        style="flex:1; padding:13px 20px; border-radius:100px; border:1.5px solid var(--border);
+               background:var(--white); font-family:'Noto Sans KR',sans-serif; font-size:0.85rem;
+               color:var(--text); outline:none; transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='var(--e)'"
+        onblur="this.style.borderColor='var(--border)'"
+      />
+      <button
+        onclick="submitNotify()"
+        style="background:var(--e); color:white; border:none; padding:13px 24px; border-radius:100px;
+               font-family:'Noto Sans KR',sans-serif; font-size:0.85rem; font-weight:600;
+               cursor:pointer; white-space:nowrap; transition:background 0.2s;"
+        onmouseover="this.style.background='#1e4e38'"
+        onmouseout="this.style.background='var(--e)'"
+      >알림 신청</button>
+    </div>
+
+    <div id="notifySuccess"
+      style="display:none; background:var(--e-light); border:1px solid var(--e-mid);
+             border-radius:10px; padding:14px 24px; margin:0 auto 12px; max-width:440px;
+             font-size:0.85rem; color:var(--e); line-height:1.7;">
+      ✓ 신청이 완료되었습니다.<br>펀딩 오픈 시 가장 먼저 알려드릴게요!
+    </div>
+
+    <p style="font-size:0.72rem; color:var(--muted);">
+      스팸 없음 · 펀딩 오픈 알림 1회만 발송 · 언제든 해지 가능
+    </p>
+  </div>
+</section>
+
+<script>
+function submitNotify() {
+  const input = document.getElementById('notifyEmail');
+  const form  = document.getElementById('notifyForm');
+  const succ  = document.getElementById('notifySuccess');
+  const email = input.value.trim();
+  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!valid) {
+    input.style.borderColor = '#C0392B';
+    input.placeholder = '올바른 이메일을 입력해주세요';
+    input.focus();
+    setTimeout(() => {
+      input.style.borderColor = 'var(--border)';
+      input.placeholder = '이메일 주소를 입력해주세요';
+    }, 2200);
+    return;
+  }
+
+  // mailto 연결 (Tally URL 확정 전 임시)
+  const subject = encodeURIComponent('RE:ESG 펀딩 오픈 알림 신청');
+  const body    = encodeURIComponent('이메일: ' + email + '\n\n펀딩 오픈 시 알림을 신청합니다.');
+  window.location.href = 'mailto:amadolab.official@gmail.com?subject=' + subject + '&body=' + body;
+
+  form.style.display = 'none';
+  succ.style.display = 'block';
+}
+
+document.getElementById('notifyEmail').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') submitNotify();
+});
+</script>
+
+<!-- 비의료 고지 배너 -->
+<section style="background:#F6EFE4;padding:32px 40px;text-align:center;border-top:1px solid #E8C99A">
+  <div style="max-width:680px;margin:0 auto;font-size:0.82rem;color:#7A5A1A;line-height:1.95">
+    <div style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#B7791F;margin-bottom:10px;font-weight:700">안전 안내</div>
+    RE:ESG 감정카드는 일상 속 감정 인식과 자기돌봄을 돕는 비의료 도구입니다.<br>
+    심리상담, 임상치료, 의료 행위를 대체하지 않습니다.<br>
+    사용 중 심리적 불편감이 크거나 위기 상황이 느껴지는 경우 전문 상담기관 또는 의료기관의 도움을 권장합니다.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    ⓒ 2026 Amado Lab (아마도랩). All rights reserved.<br>
+    브랜드 · 콘텐츠 보호 절차 진행 중<br>
+    <a href="mailto:amadolab.official@gmail.com">amadolab.official@gmail.com</a> ·
+    <a href="https://meeyann.github.io/re-esg/" target="_blank">meeyann.github.io/re-esg</a>
+  </p>
+</footer>
+
+</body>
+</html>
