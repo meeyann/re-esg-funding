@@ -907,6 +907,7 @@ footer a:hover { color:white; }
   .notify-form input, .notify-form button { border-radius:12px; }
   .cta-email-row { flex-direction:column; }
   .cta-email-row input, .cta-email-row button { border-radius:12px; }
+  #institution .sec-inner > div { grid-template-columns:1fr !important; gap:36px !important; }
   nav { padding:0 20px; }
   .nav-links a:not(.nav-cta) { display:none; }
 }
@@ -927,7 +928,7 @@ footer a:hover { color:white; }
     <a href="#structure">카드 구조</a>
     <a href="#rewards">리워드</a>
     <a href="#faq">FAQ</a>
-    <a href="#notify" class="nav-cta">오픈 알림 신청</a>
+    <a href="https://www.ohmycompany.com/reward/1663336875" target="_blank" class="nav-cta">펀딩 참여하기</a>
   </div>
 </nav>
 
@@ -951,22 +952,10 @@ footer a:hover { color:white; }
     </p>
 
     <div class="hero-cta-wrap">
-      <button class="hero-btn-main" onclick="toggleHeroEmail()">
-        오픈 알림 신청하기
+      <a href="https://www.ohmycompany.com/reward/1663336875" target="_blank" class="hero-btn-main">
+        지금 펀딩 참여하기
         <span class="arrow">→</span>
-      </button>
-
-      <div class="inline-email-box" id="heroEmailBox">
-        <div class="inline-email-row" id="heroEmailRow">
-          <input type="email" id="heroEmail"
-            placeholder="이메일 주소를 입력해주세요" />
-          <button onclick="submitHeroEmail()">신청</button>
-        </div>
-        <p class="inline-note">스팸 없음 · 오픈 시 1회 발송</p>
-        <p class="inline-success" id="heroSuccess">
-          ✓ 신청 완료! 펀딩 오픈 시 가장 먼저 알려드릴게요.
-        </p>
-      </div>
+      </a>
     </div>
 
     <div class="hero-stats">
@@ -1502,66 +1491,111 @@ footer a:hover { color:white; }
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div class="cta-inner">
-    <div class="cta-esg">
-      <span class="cta-pill">Emotion</span>
-      <span class="cta-pill">Self</span>
-      <span class="cta-pill">Ground</span>
-    </div>
-    <h2 class="cta-h2">
-      감정을 설명하기 어려운 날,<br>
-      카드 한 장으로 시작합니다
-    </h2>
-    <p class="cta-p">
-      카드 1장 + 기록 1줄 + 작은 실천 1개.<br>
-      RE:ESG의 첫 번째 후원자가 되어주세요.
-    </p>
+<!-- 기관 문의 섹션 -->
+<section style="background:var(--paper2); padding:88px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);" id="institution">
+  <div class="sec-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
 
-    <button class="cta-btn-main" onclick="toggleCTAEmail()">
-      오픈 알림 신청하기 →
-    </button>
-
-    <div class="cta-email-box" id="ctaEmailBox">
-      <div class="cta-email-row" id="ctaEmailRow">
-        <input type="email" id="ctaEmail"
-          placeholder="이메일 주소를 입력해주세요" />
-        <button onclick="submitCTAEmail()">신청하기</button>
+      <!-- 왼쪽: 텍스트 -->
+      <div>
+        <div class="sec-eyebrow">
+          <div class="sec-num">08</div>
+          <div class="sec-label">
+            <span class="sec-label-tag">기관·단체 도입 문의</span>
+            <div class="sec-label-rule"></div>
+          </div>
+        </div>
+        <h2 class="sec-h2" style="margin-bottom:16px;">
+          기관에서<br>
+          <em class="re">RE:ESG를 도입하려면</em>
+        </h2>
+        <p class="sec-p" style="margin-bottom:28px;">
+          복지관, 교육재단, 청소년센터, 기업 EAP 등<br>
+          10세트 이상 단체 도입 및 워크숍 연계 운영을<br>
+          협의해드립니다.
+        </p>
+        <div style="display:grid; gap:12px;">
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div style="width:32px; height:32px; background:var(--re-t); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem;">📦</div>
+            <div>
+              <div style="font-size:0.83rem; font-weight:500; color:var(--ink); margin-bottom:2px;">10세트 이상 단체 구매</div>
+              <div style="font-size:0.75rem; color:var(--ink3); line-height:1.6;">견적서·거래명세서 발행 가능</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div style="width:32px; height:32px; background:var(--s-t); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem;">🌿</div>
+            <div>
+              <div style="font-size:0.83rem; font-weight:500; color:var(--ink); margin-bottom:2px;">워크숍 연계 운영 협의</div>
+              <div style="font-size:0.75rem; color:var(--ink3); line-height:1.6;">1회기~8회기 표준 운영안 제공</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div style="width:32px; height:32px; background:var(--g-t); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem;">📋</div>
+            <div>
+              <div style="font-size:0.83rem; font-weight:500; color:var(--ink); margin-bottom:2px;">제안서 요청 가능</div>
+              <div style="font-size:0.75rem; color:var(--ink3); line-height:1.6;">기관 맞춤 제안서·예산안 제공</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="cta-email-note">스팸 없음 · 오픈 시 1회 발송</p>
-      <p class="cta-email-success" id="ctaSuccess">
-        ✓ 신청 완료! 펀딩 오픈 시 가장 먼저 알려드릴게요.
-      </p>
-    </div>
 
-    <p class="cta-small">
-      카드 본문 88장 + 가이드 카드 2장 = 총 90장 구성 · 가이드북 포함 · 한정 수량<br>
-      얼리버드 마감 시 가격이 변경됩니다
-    </p>
+      <!-- 오른쪽: Tally 문의 버튼 -->
+      <div>
+        <div style="background:white; border:1px solid var(--rule); border-radius:16px; padding:40px 36px; text-align:center;">
+          <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--re); margin-bottom:16px;">기관 문의</div>
+          <h3 style="font-family:var(--serif); font-size:1.25rem; font-weight:700; color:var(--ink); margin-bottom:12px; line-height:1.4;">
+            문의 내용을 남겨주시면<br>48시간 내 회신드립니다
+          </h3>
+          <p style="font-size:0.82rem; color:var(--ink3); line-height:1.85; margin-bottom:32px;">
+            아래 버튼을 누르면 기관 문의 폼으로 연결됩니다.<br>
+            기관명, 문의 유형, 연락처를 남겨주세요.
+          </p>
+
+          <a href="https://tally.so/r/rjV205" target="_blank"
+            style="display:block; background:var(--ink); color:var(--paper);
+                   font-family:var(--sans); font-size:0.92rem; font-weight:700;
+                   padding:15px 24px; border-radius:10px; text-decoration:none;
+                   letter-spacing:0.03em; margin-bottom:16px;
+                   box-shadow:0 4px 16px rgba(24,21,15,0.12);
+                   transition:background .2s;"
+            onmouseover="this.style.background='#3A342A'"
+            onmouseout="this.style.background='var(--ink)'">
+            기관 문의하기 →
+          </a>
+
+          <p style="font-size:0.68rem; color:var(--ink3); line-height:1.7;">
+            직접 문의:
+            <a href="mailto:amadolab.official@gmail.com"
+              style="color:var(--re); text-decoration:none;">amadolab.official@gmail.com</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- 알림 신청 (하단) -->
+<!-- 펀딩 참여 (하단) -->
 <section class="notify-sec" id="notify">
   <div style="max-width:520px; margin:0 auto;">
-    <span class="sec-label-tag">펀딩 오픈 알림</span>
-    <h2>펀딩이 열리는 날,<br>가장 먼저 알려드립니다</h2>
+    <span class="sec-label-tag">오마이컴퍼니 크라우드펀딩</span>
+    <h2>지금 바로<br>펀딩에 참여하세요</h2>
     <p>
-      얼리버드 혜택은 오픈 첫 48시간 안에만 유효합니다.<br>
-      이메일을 남겨두시면 그 순간 바로 알려드립니다.
+      슈퍼 얼리버드 혜택은 한정 수량입니다.<br>
+      지금 참여하시면 37,000원에 만나볼 수 있습니다.
     </p>
-
-    <div class="notify-form" id="notifyForm">
-      <input type="email" id="notifyEmail" placeholder="이메일 주소를 입력해주세요" />
-      <button onclick="submitNotify()">알림 신청</button>
-    </div>
-
-    <div id="notifySuccess">
-      ✓ 신청이 완료되었습니다.<br>펀딩 오픈 시 가장 먼저 알려드릴게요!
-    </div>
-
-    <p class="notify-note">스팸 없음 · 펀딩 오픈 알림 1회만 발송</p>
+    <a href="https://www.ohmycompany.com/reward/1663336875" target="_blank"
+      style="display:inline-block; background:var(--ink); color:var(--paper);
+             font-family:var(--sans); font-size:0.92rem; font-weight:700;
+             padding:15px 40px; border-radius:100px; text-decoration:none;
+             letter-spacing:0.03em; margin-bottom:16px;
+             box-shadow:0 4px 16px rgba(24,21,15,0.15);
+             transition:all .2s;"
+      onmouseover="this.style.background='#3A342A'"
+      onmouseout="this.style.background='var(--ink)'">
+      오마이컴퍼니에서 펀딩 참여하기 →
+    </a>
+    <p class="notify-note">슈퍼 얼리버드 37,000원 · 일반 39,000원 · 한정 수량</p>
   </div>
 </section>
 
@@ -1586,90 +1620,11 @@ footer a:hover { color:white; }
 </footer>
 
 <script>
-const TALLY = 'https://tally.so/r/obKNvx';
-
-/* ── 이메일 유효성 */
-function isValidEmail(v) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-}
-
-/* ── Tally 팝업 — 이메일 자동 입력 포함 */
-function openTally(email) {
-  const url = TALLY + '?email=' + encodeURIComponent(email.trim());
-  const popup = window.open(url, 'tally_popup', 'width=500,height=640,scrollbars=yes,resizable=yes');
-  if (!popup) {
-    // 팝업 차단 시 새 탭으로 fallback
-    window.open(url, '_blank');
-  }
-}
-
-/* ── 에러 처리 공통 */
-function showError(input, msg) {
-  input.style.borderColor = '#C0392B';
-  const orig = input.placeholder;
-  input.placeholder = msg;
-  setTimeout(() => {
-    input.style.borderColor = '';
-    input.placeholder = orig;
-  }, 2400);
-  input.focus();
-}
-
-/* ══ 히어로 인라인 이메일 ══ */
-function toggleHeroEmail() {
-  const box = document.getElementById('heroEmailBox');
-  const isOpen = box.style.display === 'block';
-  box.style.display = isOpen ? 'none' : 'block';
-  if (!isOpen) setTimeout(() => document.getElementById('heroEmail').focus(), 80);
-}
-
-function submitHeroEmail() {
-  const input = document.getElementById('heroEmail');
-  const row   = document.getElementById('heroEmailRow');
-  const succ  = document.getElementById('heroSuccess');
-  const email = input.value.trim();
-  if (!isValidEmail(email)) { showError(input, '올바른 이메일을 입력해주세요'); return; }
-  openTally(email);
-  row.style.display = 'none';
-  succ.style.display = 'block';
-}
-
-/* ══ CTA 인라인 이메일 ══ */
-function toggleCTAEmail() {
-  const box = document.getElementById('ctaEmailBox');
-  const isOpen = box.style.display === 'block';
-  box.style.display = isOpen ? 'none' : 'block';
-  if (!isOpen) setTimeout(() => document.getElementById('ctaEmail').focus(), 80);
-}
-
-function submitCTAEmail() {
-  const input = document.getElementById('ctaEmail');
-  const row   = document.getElementById('ctaEmailRow');
-  const succ  = document.getElementById('ctaSuccess');
-  const email = input.value.trim();
-  if (!isValidEmail(email)) { showError(input, '올바른 이메일을 입력해주세요'); return; }
-  openTally(email);
-  row.style.display = 'none';
-  succ.style.display = 'block';
-}
-
-/* ══ 하단 알림 신청 ══ */
-function submitNotify() {
-  const input = document.getElementById('notifyEmail');
-  const form  = document.getElementById('notifyForm');
-  const succ  = document.getElementById('notifySuccess');
-  const email = input.value.trim();
-  if (!isValidEmail(email)) { showError(input, '올바른 이메일을 입력해주세요'); return; }
-  openTally(email);
-  form.style.display = 'none';
-  succ.style.display = 'block';
-}
-
-/* ══ Enter 키 지원 ══ */
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('heroEmail').addEventListener('keydown',   e => { if (e.key === 'Enter') submitHeroEmail(); });
-  document.getElementById('ctaEmail').addEventListener('keydown',    e => { if (e.key === 'Enter') submitCTAEmail(); });
-  document.getElementById('notifyEmail').addEventListener('keydown', e => { if (e.key === 'Enter') submitNotify(); });
+/* ── FAQ 토글 */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    q.closest('.faq-item').classList.toggle('open');
+  });
 });
 </script>
 
